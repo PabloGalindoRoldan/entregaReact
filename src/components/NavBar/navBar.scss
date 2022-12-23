@@ -1,0 +1,44 @@
+.navBar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: purple;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBarLogo{
+    justify-self: flex-start;
+    padding: 3%;
+    color: white;
+}
+
+.navBarUl{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navBarLi{
+    width: 100%;
+    height: 100%;
+}
+
+.navBarItem{
+    display: flex;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+}
+
+.navBarItem:hover{
+    background-color: blueviolet;
+}
