@@ -1,0 +1,16 @@
+.cardDiv{
+    display: grid;
+    grid-template-rows: 4fr 1fr 1fr 1fr 1fr;
+    border: 1px solid black;
+    width: 300px;
+    margin: 0;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
