@@ -1,16 +1,21 @@
-import "./navBar.css"
+import "./navBar.css";
 import CartWidget from "../CartWidget/CartWidget";
+import NavItem from "./NavItem";
+import { Link } from "react-router-dom";
 
 
-function NavBar (props) {
+function NavBar () {
+
+    const links = ["Serum Facial", "Toner Facial", "Crema Facial", "Crema Corporal", "Shampoo", "Acondicionador", "Exfoliante"]
+
     return (
         <nav className="navBar">
-            <div className="navBarLogo"><h1>LogoGoesHere</h1></div>
+            <div className="navBarLogo">
+                <Link to ="/"><h1>LogoGoesHere</h1></Link>
+            </div>
             <ul className="navBarUl">
-                <li className="navBarLi"><a className="navBarItem" href="#">Shampoo</a></li>
-                <li className="navBarLi"><a className="navBarItem" href="#">Acondicionador</a></li>
-                <li className="navBarLi"><a className="navBarItem" href="#">Exfoliante</a></li>
-                <li className="navBarLi"><a className="navBarItem" href="#"><CartWidget/></a></li>
+                {links.map((e) => (<NavItem href={`/category/${e}`}key={e}>{e}</NavItem>))}
+                <NavItem href="/cart"><CartWidget/></NavItem>
             </ul>
         </nav>
     )

@@ -1,23 +1,25 @@
 import './App.css';
-import Card from  "./components/Card/Card"
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 function App() {
   return (
     <>
-      <div className="App">
-        <NavBar/>
-        <header className="App-header">
-        <ItemListContainer greeting="Bienvenidos"/>
-        </header>
-      </div>
-      <div className='cardContainer'>
-        <Card img="/imgs/img6.jpg" title="Shampoo" price={2500} detail="Nutri Boost Shampoo 500ml"/>
-        <Card img="/imgs/img7.jpg" title="Acondicionador" price={2500} detail="Nutri Boost Acondicionador 500ml"/>
-        <Card img="/imgs/img13.jpg" title="Exfoliante" price={3000} detail="Crema Exfoliante Palta 500ml"/>
-      </div>
+        <BrowserRouter>
+        <div className="App">
+          <NavBar />
+        </div>
+        <Routes>
+          <Route path="/" element={<div className='cardContainer'><ItemListContainer/></div>}/>
+          <Route path="/contacto" element={<div><h1>Contactanos</h1></div>}/>
+          <Route path="/detalle/:itemid" element={<ItemDetailContainer/>}/>
+          <Route path="/category/:categoryid" element={<ItemListContainer/>}/>
+          <Route path="*" element={<h2>Pagina NO encontrada</h2>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
