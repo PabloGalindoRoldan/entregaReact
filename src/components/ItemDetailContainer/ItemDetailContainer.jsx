@@ -4,7 +4,6 @@ import { productDetail } from "../../services/firebase";
 import ItemDetail from "./ItemDetail";
 import { cartContext } from "../../storage/cartContext";
 import Loader from "../Loader/Loader";
-import ItemCount from "../ItemCount/ItemCount";
 
 
 
@@ -14,7 +13,6 @@ function ItemDetailContainer() {
     const [arrayProducts, setArrayProducts] = React.useState([]);
     const [isInCart, setIsInCart] = React.useState(false)
     const [isLoading, setIsLoading] = React.useState (true);
-    
     let params = useParams();
 
     function handleOnAddToCart (count) { 
@@ -35,7 +33,7 @@ function ItemDetailContainer() {
 
         let update = arrayProducts.cantidad;
         
-        if (itemInCart != undefined) {
+        if (itemInCart !== undefined) {
             update = arrayProducts.cantidad - itemInCart.count
         }
 

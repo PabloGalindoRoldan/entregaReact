@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Item(props){
 
-    const {id, nombre, precio, tipo, cantidad, detalle, img} = props.item; 
+    const {id, nombre, precio, tipo, detalle, img} = props.item; 
 
     return(
         <>

@@ -5,7 +5,7 @@ import { cartContext } from "../../storage/cartContext";
 
 
 function CartContainer(){
-    const {cart, removeItem, getTotal} = useContext(cartContext);
+    const {cart, /*removeItem,*/ getTotal} = useContext(cartContext);
 
     function handleCheckout(evt){
         evt.preventDefault();
