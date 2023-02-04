@@ -11,7 +11,7 @@ function PageNotFound() {
 
     return (
         <div className="containerPaginaNoEncontrada">
-            <img className="errorImg" src="../imgs/error.jpg"></img>
+            <img className="errorImg" src="../imgs/error.jpg" alt="error 404"></img>
         </div>
     );
 }

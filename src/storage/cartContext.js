@@ -21,9 +21,9 @@ export function CartProvider(props) {
         
     }
 
-    function removeItem(itemid){
-        //remover el item del array con splice maybe
-    }
+    // function removeItem(itemid){
+    //     //remover el item del array con splice maybe
+    // }
 
     // function clear(){
     //     setCart ([])
