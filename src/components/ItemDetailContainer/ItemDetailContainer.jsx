@@ -20,13 +20,14 @@ function ItemDetailContainer() {
         setIsInCart(true);
     } 
     
+    console.log(params.itemid)
+
     React.useEffect(() => {
         productDetail(params.itemid)
         .then((response) => { setArrayProducts(response) })
         .catch(error => alert(error))
         .finally(() => setIsLoading(false));
-    }, [])
-
+    }, [params.itemid])
 
     function checkStock(){
         let itemInCart = context.cart.find((item) => item.id === arrayProducts.id)
