@@ -1,4 +1,7 @@
 import React from 'react';
+import Button from "../Button/Button"
+import ButtonCount from '../Button/ButtonCount';
+import "./itemCount.css"
 
 export default function ItemCount(props) {
 
@@ -13,18 +16,13 @@ export default function ItemCount(props) {
         if(count > 1) {setCount(count - 1)}
     }
 
-    function handleClickAlert(){
-        return alert("Agregado")
-    }
-
     return (
         <>
-        <div style={{display: "flex", alignItems:"center", justifyContent:"space-around", padding:"5px"}}>
-            Agrega al Carrito
-        <button disabled={count === 1 }onClick={handleClickMinus}>-</button>
+        <div style={{display: "flex", alignItems:"center", justifyContent:"space-around", padding:"5px", flexWrap: "wrap"}}>
+        <ButtonCount disabled={count === 1 } onClick={handleClickMinus}>-</ButtonCount>
         <p>{count}</p>
-        <button disabled={count === stock} onClick={handleClickAdd}>+</button>
-        <button onClick={handleClickAlert}>Agregar al Carrito</button>
+        <ButtonCount disabled={count === stock} onClick={handleClickAdd}>+</ButtonCount>
+        <Button onClick={()=>props.onAddToCart(count)}>Agregar al Carrito</Button>
         </div>
     </>
     )

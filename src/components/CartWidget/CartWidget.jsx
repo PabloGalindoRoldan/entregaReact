@@ -1,6 +1,16 @@
-function CartWidget(props) {
+import React from "react";
+import { cartContext } from "../../storage/cartContext";
+
+
+function CartWidget() {
+
+    const contexto = React.useContext(cartContext)
+    
     return(
-        <img src="/imgs/img1.png" alt="cartIcon" />
+        <>
+            <span>🛒</span>
+            <span>{contexto.getTotalItemsInCart()}</span>
+        </>
     )
 }
 

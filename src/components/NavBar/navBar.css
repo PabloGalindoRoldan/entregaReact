@@ -1,7 +1,8 @@
 .navBar {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: purple;
+  background: rgb(208, 208, 208);
+  background: linear-gradient(79deg, rgb(127, 13, 180) 0%, rgb(137, 4, 124) 100%);
   align-items: center;
   justify-content: center;
 }
@@ -9,26 +10,41 @@
 .navBarLogo {
   justify-self: flex-start;
   padding: 3%;
-  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.navBarLogo h1 {
+  color: rgb(255, 254, 254);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navBarLogo h1:hover {
+  color: rgb(205, 146, 205);
+}
+
+.navBarLogo a {
+  text-decoration: none;
 }
 
 .navBarUl {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   list-style: none;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 .navBarLi {
-  width: 100%;
-  height: 100%;
+  height: 50%;
+  width: 25%;
 }
 
 .navBarItem {
   display: flex;
+  flex-wrap: wrap;
   text-decoration: none;
   height: 100%;
   width: 100%;
@@ -36,8 +52,13 @@
   align-items: center;
   justify-content: center;
   color: white;
+  font-family: sans-serif;
+}
+.navBarItem a {
+  height: 100%;
+  width: 100%;
 }
 
 .navBarItem:hover {
-  background-color: blueviolet;
-}/*# sourceMappingURL=navBar.css.map */
+  background-color: rgb(183, 93, 183);
+}

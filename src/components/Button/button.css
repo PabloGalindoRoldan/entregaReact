@@ -1,5 +1,23 @@
 .btn{
     background-color: purple;
-    color: aqua;
     padding: 20px;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    font-size: large;
+}
+
+.btnCount {
+    background-color: purple;
+    padding: 5px;
+    width: 30px;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    font-size: large;
+}
+
+.btn:hover, .btnCount:hover{
+    background-color:rgb(183, 93, 183);
 }

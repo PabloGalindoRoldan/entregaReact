@@ -3,7 +3,6 @@ import CartWidget from "../CartWidget/CartWidget";
 import NavItem from "./NavItem";
 import { Link } from "react-router-dom";
 
-
 function NavBar () {
 
     const links = ["Serum Facial", "Toner Facial", "Crema Facial", "Crema Corporal", "Shampoo", "Acondicionador", "Exfoliante"]
@@ -11,7 +10,7 @@ function NavBar () {
     return (
         <nav className="navBar">
             <div className="navBarLogo">
-                <Link to ="/"><h1>LogoGoesHere</h1></Link>
+                <Link to ="/"><h1>Vegania</h1></Link>
             </div>
             <ul className="navBarUl">
                 {links.map((e) => (<NavItem href={`/category/${e}`}key={e}>{e}</NavItem>))}
