@@ -11,41 +11,42 @@ export function CartProvider(props) {
 
     function addToCart(item){
         let isInCart = cart.findIndex((elem)=>elem.id === item.id)
+        
         if (isInCart !== -1) {
             if(newCart[isInCart].count + item.count > newCart[isInCart].cantidad){
-                return alert("Se supera el stock")
+                return alert("No hay Stock disponible")
             } else {
             newCart[isInCart].count += item.count 
+            setCart(newCart)
             }
         } else {setCart([...cart, item])}
         
     }
 
-    // function removeItem(itemid){
-    //     //remover el item del array con splice maybe
-    // }
+    const removeItem = (id) => {
+        const filteredCart = cart.filter((item) => item.id !== id)
+        setCart(filteredCart)
+    }
 
-    // function clear(){
-    //     setCart ([])
-    // }
+    function clear(){
+        setCart ([])
+    }
 
     function getTotalItemsInCart(){
-        let total = 0
-        let newCart = cart.map((item)=>item)
-        for (let elem of newCart){
-            total += elem.count
-        }
-    return total
+        return(
+            cart.reduce((acc, cv)=> (acc + cv.count), 0)
+            ) 
     }
 
     //function get total price in cart
 
     function getTotal(){
-        return 1000
+        return (cart.reduce((acc, currentValue) => (acc + currentValue.count * currentValue.precio), 0))
+        
     }
 
     return (
-        <cartContext.Provider value ={{cart, addToCart, getTotalItemsInCart, getTotal}}>
+        <cartContext.Provider value ={{cart, clear, removeItem, addToCart, getTotalItemsInCart, getTotal}}>
             {props.children}
         </cartContext.Provider>
     )

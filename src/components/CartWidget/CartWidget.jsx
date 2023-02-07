@@ -9,7 +9,7 @@ function CartWidget() {
     return(
         <>
             <span>🛒</span>
-            <span>{contexto.getTotalItemsInCart()}</span>
+            <span>{contexto.getTotalItemsInCart() ? contexto.getTotalItemsInCart() : "" }</span>
         </>
     )
 }
