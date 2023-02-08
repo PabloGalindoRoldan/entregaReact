@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { cartContext } from "../../storage/cartContext";
 
 function InputForm(props) {
     return (
@@ -15,6 +17,7 @@ function InputForm(props) {
 }
 
 export default function FormCheckout(props) {
+    const { clear } = useContext(cartContext);
     const [userData, setUserData] = useState({
         name: "",
         phone: "",
@@ -22,21 +25,18 @@ export default function FormCheckout(props) {
     });
 
     let fieldsForm = Object.keys(userData);
-    //console.log(userData)
 
     function onInputChange(evt) {
         let value = evt.target.value;
         let inputName = evt.target.name;
 
         let newState = { ...userData };
-        // dynamic props
         newState[inputName] = value;
         setUserData(newState);
     }
 
     function onSubmit(evt) {
         evt.preventDefault();
-        console.log(`Gracias por tu compra!`);
     }
 
     function formIsInvalid() {
@@ -49,7 +49,7 @@ export default function FormCheckout(props) {
 
     return (
         <form onSubmit={onSubmit}>
-            <h1>Llena tus datos para finalizar la compra 🛍</h1>
+            <h1>Completa los datos y finaliza la compra</h1>
             {fieldsForm.map((field) => (
                 <InputForm
                     value={userData[field]}
@@ -60,7 +60,10 @@ export default function FormCheckout(props) {
                 />
             ))}
             <button
-                onClick={(evt) => props.onCheckout(evt, userData)}
+                onClick={(evt) => {
+                    props.onCheckout(evt, userData)
+                    clear()
+                }}
                 disabled={formIsInvalid()}
                 type="submit"
             >

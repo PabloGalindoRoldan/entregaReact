@@ -55,25 +55,22 @@ export async function createOrder(order) {
 export async function createOrder_WithStockControl(order) {
     const orderRef = collection(database, "order");
     const productsRef = collection(database, "products");
-
     const batch = writeBatch(database);
-
     const arrayIds = order.items.map((item) => item.id);
-
     const q = query(productsRef, where(documentId(), "in", arrayIds));
     const querySnaphot = await getDocs(q);
     const docsToUpdate = querySnaphot.docs;
     let itemsSinStock = [];
 
     docsToUpdate.forEach((doc) => {
-        let stock = doc.data().cantidad;
+        let cantidad = doc.data().cantidad;
         let itemInCart = order.items.find((item) => item.id === doc.id);
         let countInCart = itemInCart.count;
-        let newStock = stock - countInCart;
-        if (newStock < 0) {
+        let nuevaCantidad = parseInt(cantidad - countInCart);
+        if (nuevaCantidad < 0) {
             itemsSinStock.push(doc.id);
         } else {
-            batch.update(doc.ref, { stock: newStock });
+            batch.update(doc.ref, { cantidad: nuevaCantidad });
         }
     });
     if (itemsSinStock.length >= 1)

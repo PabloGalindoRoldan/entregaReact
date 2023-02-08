@@ -19,8 +19,6 @@ function ItemDetailContainer() {
         context.addToCart({...arrayProducts, count})
         setIsInCart(true);
     } 
-    
-    console.log(params.itemid)
 
     React.useEffect(() => {
         productDetail(params.itemid)

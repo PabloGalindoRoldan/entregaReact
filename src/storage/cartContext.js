@@ -38,11 +38,8 @@ export function CartProvider(props) {
             ) 
     }
 
-    //function get total price in cart
-
     function getTotal(){
         return (cart.reduce((acc, currentValue) => (acc + currentValue.count * currentValue.precio), 0))
-        
     }
 
     return (

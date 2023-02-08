@@ -13,8 +13,9 @@ function ItemDetail(props){
             <h3 className="cardText">Tipo: {props.tipo}</h3>
             <h3 className="cardText">{props.detalle}</h3>
             <h3 className="cardText">$ {props.precio}</h3>
-            <h3 className="cardText">Stock: {props.cantidad}</h3>
-
+            {props.cantidad !== 0 ? <h3 className="cardText">Stock: {props.cantidad}</h3> : 
+                    <h3>Sin Stock</h3>
+            }
             {props.isInCart ? (
                 <Link to="/cart"><Button>Ir al Carrito</Button></Link>
             ) : (
