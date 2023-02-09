@@ -1,3 +1,7 @@
+*{
+  font-family: "Raleway";
+}
+
 .App {
   text-align: center;
 }
@@ -19,4 +23,29 @@
   gap: 15px;
   margin-top: 15px;
   justify-content: center;
+}
+
+.landing{
+  height: 100vh;
+  background-image: url("../public/imgs/landing.jpg");
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.landing h1{
+  margin: 0;
+  grid-column: 0 / 1;
+  align-self: flex-end;
+  font-family: "Babylonica";
+  font-size: 100px;
+  text-align: center;
+}
+
+.landing p{
+  grid-row: 2;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  text-shadow: 1px 1px 5px rgb(41, 40, 40);
 }

@@ -2,12 +2,14 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import { CartProvider } from './storage/cartContext';
 import CartContainer from './components/CartContainer/CartContainer';
 import PageNotFound from './pages/PageNotFound';
 
+
 function App() {
+  let params = useParams()
   return (
     <>
         <BrowserRouter>
@@ -15,8 +17,17 @@ function App() {
             <div className="App">
               <NavBar />
             </div>
+            
             <Routes>
-              <Route path="/" element={<div className='cardContainer'><ItemListContainer/></div>}/>
+              <Route path="/" element={
+                <>
+                  <div className ="landing">
+                  <h1>Vegania</h1>
+                  <p> Productos naturales para el cuidado de la piel.</p>
+                  </div>
+                  <div className='cardContainer'><ItemListContainer/></div>
+                </>
+                }/>
               <Route path="/detalle/:itemid" element={<div className='cardContainer'><ItemDetailContainer/></div>}/>
               <Route path="/category/:categoryid" element={<div className='cardContainer'><ItemListContainer/></div>}/>
               <Route path="/cart" element={<CartContainer/>}/>

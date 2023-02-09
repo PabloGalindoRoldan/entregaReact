@@ -1,10 +1,12 @@
+import "./formCheckout.css"
 import React, { useState } from "react";
 import { useContext } from "react";
 import { cartContext } from "../../storage/cartContext";
+import Button from "../Button/Button";
 
 function InputForm(props) {
     return (
-        <div style={{ display: "flex", marginBottom: 8 }}>
+        <div className="input">
             <label style={{ width: "100px", marginRight: 4 }}>{props.label}</label>
             <input
                 value={props.value}
@@ -48,10 +50,11 @@ export default function FormCheckout(props) {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form className="formBody" onSubmit={onSubmit}>
             <h1>Completa los datos y finaliza la compra</h1>
             {fieldsForm.map((field) => (
                 <InputForm
+                    key = {field}
                     value={userData[field]}
                     name={field}
                     onChange={onInputChange}
@@ -59,20 +62,22 @@ export default function FormCheckout(props) {
                     userData={userData}
                 />
             ))}
-            <button
-                onClick={(evt) => {
-                    props.onCheckout(evt, userData)
-                    clear()
-                }}
-                disabled={formIsInvalid()}
-                type="submit"
-            >
-                Crear orden
-            </button>
+            <div className="divButtons">
+                <Button
+                    onClick={(evt) => {
+                        props.onCheckout(evt, userData)
+                        clear()
+                    }}
+                    disabled={formIsInvalid()}
+                    type="submit"
+                >
+                    Crear orden
+                </Button>
 
-            <button onClick={() => setUserData({ name: "", email: "", phone: "" })}>
-                Limpiar
-            </button>
+                <Button onClick={() => setUserData({ name: "", email: "", phone: "" })}>
+                    Limpiar Formulario
+                </Button>
+            </div>
         </form>
     );
 }

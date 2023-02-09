@@ -1,0 +1,41 @@
+.carritoTitulo{
+    text-align: center;
+}
+
+.carritoContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.carritoBody{
+    margin: 5%;
+}
+
+.carritoTotal{
+    text-align: center;
+    border: 2px, solid, purple;
+    padding: 3%;
+    background-color: rgb(183, 93, 183);
+    color: white
+}
+
+.mensajeFinal{
+    text-align: center;
+    padding: 10%;
+}
+
+.mensajeFinal h1{
+    font-size: 40px;
+}
+
+.mensajeFinal p{
+    font-size: 20px;
+}
+
+.mensajeFinal span{
+    color: purple;
+    font-weight: 700;
+    text-decoration: underline 3px;
+}

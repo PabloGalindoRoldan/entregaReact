@@ -1,0 +1,33 @@
+.formBody{
+    min-height: 30vh;
+}
+
+.formBody h1{
+    text-align: center;
+}
+
+.input{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    width: 100%;
+    margin: 10px, 10px, 10px, 10px;
+    padding: 15px;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+
+} 
+
+.input label{
+    font-weight: bold;
+}
+
+.input input{
+    width: 80%;
+}
+
+.divButtons{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}

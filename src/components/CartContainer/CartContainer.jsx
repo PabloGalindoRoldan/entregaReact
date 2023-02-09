@@ -1,9 +1,11 @@
 import Button from "../Button/Button";
+import "./cartContainer.css"
 import { createOrder_WithStockControl } from "../../services/firebase";
 import { useContext } from "react";
 import { cartContext } from "../../storage/cartContext";
 import FormCheckout from "../FormCheckout/FormCheckout";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 function CartContainer() {
@@ -33,38 +35,38 @@ function CartContainer() {
 
     if (orderId)
         return (
-            <div>
+            <div className="mensajeFinal">
                 <h1>Gracias por tu compra</h1>
-                <p>El id de tu compra {orderId}</p>
+                <p>El id de tu compra es:     <span>{orderId}</span></p>
+                <Link to="/"><Button>Volver al inicio</Button></Link>
             </div>
         );
 
     if (cart.length !== 0) {
         return (
-            <>
-                <h1>Carrito</h1>
+            <div className ="carritoBody">
+                <h1 className="carritoTitulo">Carrito</h1>
                 {cart.map((item) => (
-                    <div key={item.id}>
+                    <div key={item.id} className="carritoContainer">
                         <div>
-                            <h2>Miniatura</h2>
-                            <img height={50} src={item.img} alt={item.nombre}></img>
+                            <img height={100} src={item.img} alt={item.nombre}></img>
                         </div>
                         <div>
-                            <h2>{item.nombre}</h2>
+                            <h3>{item.nombre}</h3>
                         </div>
-                        <div> Cantidad: {item.count}</div>
-                        <div>Precio: ${item.precio}</div>
+                        <div> <h4>Cantidad: {item.count}</h4></div>
+                        <div><h4>Precio: ${item.precio}</h4></div>
                         <Button onClick={() => removeItem(item.id)}>Remover</Button>
                     </div>
                 ))}
 
-                <div> {getTotal() ? <h2>Total: {getTotal()}</h2> : ""}</div>
+                <div className="carritoTotal"> {getTotal() ? <h2>Total: $ {getTotal()}</h2> : ""}</div>
                 <div>
                     <FormCheckout onCheckout={handleCheckout} />
                     <Button onClick={clear}>Vaciar carrito</Button>
                 </div>
-            </>
+            </div>
         )
-    } else { return (<h2>Carrito Vacio</h2>) }
+    } else { return (<h2 className="carritoTitulo">Carrito Vacio</h2>) }
 
 } export default CartContainer
